@@ -111,9 +111,11 @@ add_action( 'widgets_init', 'epixmdl_widgets_init' );
 function epixmdl_scripts() {
 	wp_enqueue_style( 'epixmdl-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'epixmdl-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_style( 'epixmaterialwp-google-md-font', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
 
-	wp_enqueue_script( 'epixmdl-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_style( 'epixmaterialwp-google-md-style', 'https://code.getmdl.io/1.2.1/material.indigo-pink.min.css' );
+
+	wp_enqueue_script( 'epixmaterialwp-google-md-script', 'https://code.getmdl.io/1.2.1/material.min.js', array(), '20161005', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
