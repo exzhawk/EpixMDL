@@ -10,17 +10,19 @@
  */
 
 ?>
+			<footer class="mdl-mini-footer">
+				<div class="mdl-mini-footer__left-section">
+					<ul class="mdl-mini-footer__link-list">
+						<li><a href="https://wordpress.org/">WordPress</a></li>
+						<li><a href="http://exz.me/">Theme By Epix</a></li>
+						<li><a href="http://underscores.me/" rel="designer">Based on Underscores.me</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+	</main>
+</div>
 
-	</div><!-- #content -->
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'epixmdl' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'epixmdl' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'epixmdl' ), 'epixmdl', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
 
 <?php wp_footer(); ?>
 
