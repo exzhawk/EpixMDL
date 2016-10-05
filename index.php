@@ -14,8 +14,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area mdl-cell mdl-cell--8-col">
 
 		<?php
 		if ( have_posts() ) :
@@ -25,7 +24,7 @@ get_header(); ?>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
 
-			<?php
+				<?php
 			endif;
 
 			/* Start the Loop */
@@ -48,9 +47,9 @@ get_header(); ?>
 
 		endif; ?>
 
-		</main><!-- #main -->
 	</div><!-- #primary -->
-
+<?php get_sidebar(); ?>
+	</div>
 <?php
-get_sidebar();
+
 get_footer();
