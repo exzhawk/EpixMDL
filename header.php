@@ -41,11 +41,12 @@
 	<div class="mdl-layout__drawer">
 		<span class="mdl-layout-title"><?php bloginfo( 'name' ); ?></span>
 		<nav class="mdl-navigation">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-			<a class="mdl-navigation__link" href="">Link</a>
-			<a class="mdl-navigation__link" href="">Link</a>
-			<a class="mdl-navigation__link" href="">Link</a>
-			<a class="mdl-navigation__link" href="">Link</a>
+			<?php $menu_items = wp_get_nav_menu_items( get_nav_menu_locations()["primary"] );
+			foreach ( $menu_items as $menu_item ) {
+				printf( '<a class="mdl-navigation__link" href="%s">%s%s</a>',
+					$menu_item->url, $menu_item->menu_item_parent ? '&nbsp;&nbsp;' : '', $menu_item->post_title );
+			}
+			?>
 		</nav>
 	</div>
 	<main class="mdl-layout__content">
