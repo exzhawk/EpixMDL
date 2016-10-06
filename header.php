@@ -44,7 +44,7 @@
 			<?php $menu_items = wp_get_nav_menu_items( get_nav_menu_locations()["primary"] );
 			foreach ( $menu_items as $menu_item ) {
 				printf( '<a class="mdl-navigation__link" href="%s">%s%s</a>',
-					$menu_item->url, $menu_item->menu_item_parent ? '&nbsp;&nbsp;' : '', $menu_item->post_title );
+					$menu_item->url, $menu_item->menu_item_parent ? '&nbsp;&nbsp;' : '', $menu_item->title );
 			}
 			?>
 		</nav>
