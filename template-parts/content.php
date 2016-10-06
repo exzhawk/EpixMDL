@@ -9,39 +9,49 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_single() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+<article id="post-<?php the_ID(); ?>" <?php post_class('mdl-grid mdl-grid--no-spacing mdl-shadow--2dp'); ?>>
+    <?php if (!is_single()): ?>
+        <header class="">
+            <?php the_post_thumbnail('w320h320'); ?>
+        </header>
+    <?php endif; ?>
+    <div class="mdl-card">
+        <div class="mdl-card__title entry-header">
+            <?php the_title('<h2 class="mdl-card__title-text entry-title">', '</h2>') ?>
+        </div>
+        <?php $post_tags = get_the_tags();
+        if ($post_tags) {
+            ?>
+            <div class="mdl-card__supporting-text">
+                <?php foreach ($post_tags as $tag) {
+                    printf('<a href="%1$s" class="tag-chip"><span class="mdl-chip"><span class="mdl-chip__text">%2$s</span></span></a>',
+                        get_term_link($tag), $tag->name);
+                } ?>
+            </div>
+        <?php }; ?>
+        <div class="mdl-card__supporting-text entry-content mdl-color-text--grey-800">
+            <?php is_single()?the_content():the_excerpt();
+            ?>
+        </div><!-- .entry-content -->
+        <span class="flex-padding"></span>
+        <div class="mdl-card__actions entry-footer mdl-grid">
+            <?php
+            $post_cat = get_the_category()[0];
+            printf('<a href="%1$s" class="mdl-button md-js-button md-js-ripple-effect"><i class="material-icons">label</i>%2$s</a>',
+                get_term_link($post_cat), $post_cat->name);
 
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php epixmdl_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'epixmdl' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
-
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'epixmdl' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php epixmdl_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+            printf('<a href ="%1$s" class="mdl-button md-js-button md-js-ripple-effect" rel="bookmark">
+                    <i class="material-icons">update</i>
+                    <time class="entry-date published updated" datetime="%2$s">%3$s</time></a>',
+                esc_url(get_permalink()), esc_attr(get_the_date('c')), esc_html(get_the_date()));
+            printf('<a href="%1$s" class="mdl-button md-js-button md-js-ripple-effect"><i class="material-icons">comment</i>%2$s comment</a>',
+                get_permalink() . '#comments', get_comments_number());
+            ?>
+            <span class="flex-padding"></span>
+            <?php
+            printf('<a href="%1$s" class="mdl-button md-js-button md-js-ripple-effect">read more<i class="material-icons">expand_more</i></a>',
+                get_permalink());
+            ?>
+        </div><!-- .entry-footer -->
+    </div>
 </article><!-- #post-## -->
