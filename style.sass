@@ -17,23 +17,36 @@
  *Underscores is distributed under the terms of the GNU GPL v2 or later.*/
 
 #primary > article
+  //fill entire primary part width
   width: auto
+  //space between cards
   margin-bottom: 16px
   & > div
+    //fill space other than post thumbnail
     flex: 1
+    //allow children use flex
     display: flex
+    //vertical flex
     flex-flow: column
     & > .entry-footer
+      //allow children use flex
       display: flex
       & > a.mdl-button
+        //dodge color
         color: rgba(0, 0, 0, 0.87)
 
 .tag-chip
+  //space between chips
   margin-right: 8px
 
 .entry-footer
+  //add single line between upper card and action bar
   border-top: 1px solid rgba(0, 0, 0, 0.12)
 
+//universal padding class to use up left space
 .flex-padding
   flex: 1
 
+.admin-bar > .mdl-layout__container
+  //prevent overflow when showing admin bar of WordPress
+  height: auto
