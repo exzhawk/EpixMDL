@@ -30,7 +30,7 @@
             </div>
         <?php }; ?>
         <div class="mdl-card__supporting-text entry-content mdl-color-text--grey-800">
-            <?php is_single()?the_content():the_excerpt();
+            <?php is_single() ? the_content() : the_excerpt();
             ?>
         </div><!-- .entry-content -->
         <span class="flex-padding"></span>
@@ -47,11 +47,13 @@
             printf('<a href="%1$s" class="mdl-button md-js-button md-js-ripple-effect"><i class="material-icons">comment</i>%2$s comment</a>',
                 get_permalink() . '#comments', get_comments_number());
             ?>
-            <span class="flex-padding"></span>
-            <?php
-            printf('<a href="%1$s" class="mdl-button md-js-button md-js-ripple-effect">read more<i class="material-icons">expand_more</i></a>',
-                get_permalink());
-            ?>
+            <?php if (!is_single()): ?>
+                <span class="flex-padding"></span>
+                <?php
+                printf('<a href="%1$s" class="mdl-button md-js-button md-js-ripple-effect">read more<i class="material-icons">expand_more</i></a>',
+                    get_permalink());
+                ?>
+            <?php endif; ?>
         </div><!-- .entry-footer -->
     </div>
 </article><!-- #post-## -->
