@@ -69,11 +69,40 @@ if ( ! function_exists( 'epixmdl_setup' ) ) :
 			'gallery',
 			'link',
 		) );
-        add_image_size( 'w320h320', 320, 320, true );
+		add_image_size( 'w320h320', 320, 320, true );
 	}
 endif;
 add_action( 'after_setup_theme', 'epixmdl_setup' );
 
+if ( ! function_exists( 'epixmdl_comment' ) ) :
+	function epixmdl_comment( $comment, $args, $depth ) {
+		$GLOBALS['comment'] = $comment;
+		?>
+	<li <?php comment_class( "mdl-list__item mdl-list__item--three-line" ) ?> id="<?php comment_ID() ?>">
+		<span class="mdl-list__item-primary-content comment-body">
+			<a href="<?php echo get_comment_author_url() ?>">
+				<?php echo get_avatar( $comment, 40, '', '', array( 'class' => 'mdl-list__item-avatar', ) ); ?>
+			</a>
+			<a href="<?php echo get_comment_author_url() ?>">
+				<span><?php echo get_comment_author() ?></span>
+			</a>
+			<span>@</span>
+			<a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">
+				<time datetime="<?php comment_time( 'c' ); ?>">
+					<?php echo get_comment_date() . '&nbsp;' . get_comment_time(); ?>
+				</time>
+			</a>
+			<span class="mdl-list__item-text-body comment-content">
+				<?php comment_text(); ?>
+			</span>
+		</span>
+		<span class="mdl-list__item-secondary-content">
+			 <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">reply</i></a>
+		</span>
+
+		<?php
+	}
+endif;
 
 /**
  * Register widget area.

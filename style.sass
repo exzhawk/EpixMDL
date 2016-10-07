@@ -16,24 +16,39 @@
  *EpixMDL is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
  *Underscores is distributed under the terms of the GNU GPL v2 or later.*/
 
-#primary > article
-  //fill entire primary part width
-  width: auto
-  //space between cards
-  margin-bottom: 16px
-  & > div
-    //fill space other than post thumbnail
-    flex: 1
-    //allow children use flex
-    display: flex
-    //vertical flex
-    flex-flow: column
-    & > .entry-footer
+#primary
+  & > article
+    //fill entire primary part width
+    width: auto
+    //space between cards
+    margin-bottom: 16px
+    & > div
+      //fill space other than post thumbnail
+      flex: 1
       //allow children use flex
       display: flex
-      & > a.mdl-button
-        //dodge color
-        color: rgba(0, 0, 0, 0.87)
+      //vertical flex
+      flex-flow: column
+      & > .entry-footer
+        //allow children use flex
+        display: flex
+        & > a.mdl-button
+          //dodge color
+          color: rgba(0, 0, 0, 0.87)
+  & > #comments
+    //fill entire primary part width
+    width: auto
+    & > ul.comment-list > li.comment
+      //separate each reply
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12)
+      & span.mdl-list__item-text-body
+        //left align text
+        margin-left: 56px
+    & > #respond
+      //fill entire
+      width: auto
+      & .comment-form-comment
+        width: 100%
 
 .tag-chip
   //space between chips
@@ -50,3 +65,8 @@
 .admin-bar > .mdl-layout__container
   //prevent overflow when showing admin bar of WordPress
   height: auto
+
+//disable link underline
+a
+  text-decoration: none
+
