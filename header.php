@@ -15,6 +15,10 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="preload" href="<?php get_stylesheet_uri();?>" as="style" onload="this.rel='stylesheet'">
+	<link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style" onload="this.rel='stylesheet'">
+	<link rel="preload" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css" as="style" onload="this.rel='stylesheet'">
+
 
 	<?php wp_head(); ?>
 </head>

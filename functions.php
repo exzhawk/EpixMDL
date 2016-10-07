@@ -127,11 +127,11 @@ add_action( 'widgets_init', 'epixmdl_widgets_init' );
  * Enqueue scripts and styles.
  */
 function epixmdl_scripts() {
-	wp_enqueue_style( 'epixmdl-style', get_stylesheet_uri() );
-
-	wp_enqueue_style( 'epixmaterialwp-google-md-font', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
-
-	wp_enqueue_style( 'epixmaterialwp-google-md-style', 'https://code.getmdl.io/1.2.1/material.indigo-pink.min.css' );
+//	wp_enqueue_style( 'epixmdl-style', get_stylesheet_uri() );
+//
+//	wp_enqueue_style( 'epixmaterialwp-google-md-font', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
+//
+//	wp_enqueue_style( 'epixmaterialwp-google-md-style', 'https://code.getmdl.io/1.2.1/material.indigo-pink.min.css' );
 
 	wp_enqueue_script( 'epixmaterialwp-google-md-script', 'https://code.getmdl.io/1.2.1/material.min.js', array(), '20161005', true );
 
