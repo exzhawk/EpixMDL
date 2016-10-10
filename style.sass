@@ -30,13 +30,15 @@ html, body, h1, h2
     width: auto
     //space between cards
     margin-bottom: 16px
-    & > div
+    & > div.mdl-card
       //fill space other than post thumbnail
       flex: 1
       //allow children use flex
       display: flex
       //vertical flex
       flex-flow: column
+      & > .mdl-card__title, .mdl-card__supporting-text
+        padding-bottom: 0
       & > .entry-footer
         //allow children use flex
         display: flex
