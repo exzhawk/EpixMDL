@@ -15,17 +15,14 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="preload" href="<?php echo get_stylesheet_uri();?>" as="style" onload="this.rel='stylesheet'">
-	<link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons" as="style" onload="this.rel='stylesheet'">
-	<link rel="preload" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css" as="style" onload="this.rel='stylesheet'">
+	<link rel="preload" href="<?php echo get_stylesheet_uri(); ?>" as="style" onload="this.rel='stylesheet'">
 
 
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
-            mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 	<header class="mdl-layout__header">
 		<div class="mdl-layout__header-row">
 			<div class="mdl-layout-spacer"></div>
@@ -36,8 +33,7 @@
 					<i class="material-icons">search</i>
 				</label>
 				<div class="mdl-textfield__expandable-holder">
-					<input class="mdl-textfield__input" type="text" name="sample"
-					       id="fixed-header-drawer-exp">
+					<input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
 				</div>
 			</div>
 		</div>
