@@ -55,8 +55,17 @@ html, body, h1, h2
     & > #respond
       //fill entire
       width: auto
-      & .comment-form-comment
-        width: 100%
+    //format comment box
+    & .comment-text-wrapper
+      display: flex
+      align-items: flex-start
+      & > label
+        margin: 20px 0
+      & > .comment-form-comment
+        flex: 1
+    #submit
+      margin: 0 8px
+      padding: 0 32px
 
 .tag-chip
   //space between chips
