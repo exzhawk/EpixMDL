@@ -54,7 +54,7 @@
 			</a>
 			<?php if ( ! is_single() ): ?>
 				<span class="flex-padding"></span>
-				<a href="<?php get_permalink(); ?>" class="mdl-button md-js-button md-js-ripple-effect">
+				<a href="<?php echo get_permalink(); ?>" class="mdl-button md-js-button md-js-ripple-effect">
 					read more<i class="material-icons">expand_more</i>
 				</a>
 			<?php endif; ?>
