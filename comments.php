@@ -24,14 +24,6 @@ if ( post_password_required() ) {
 
 	<?php
 	if ( have_comments() ) : ?>
-		<ol class="comment-list">
-			<?php
-			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
-			) );
-			?>
-		</ol><!-- .comment-list -->
 		<ul class="mdl-list comment-list">
 			<?php
 			wp_list_comments( array(
